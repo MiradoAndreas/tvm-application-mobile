@@ -14,7 +14,7 @@ export default function TabLayout() {
         <Text style={[
           styles.bonjour
         ]}>
-          Bonjour
+          Hello
         </Text>
       </View>
     </ThemeProvider>
