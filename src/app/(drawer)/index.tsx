@@ -1,7 +1,8 @@
 import { ProgramCard } from "@/componennts/home/program-card";
 import { LivePlayer } from "@/componennts/video-player";
+import { useTheme } from "@/context/ThemeContext";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import "../../global.css";
+import "../../../global.css";
 
 const programs = [
   { time: "08:00", title: "Journal Matinal", category: "Information" },
@@ -18,11 +19,13 @@ const style = StyleSheet.create({
 });
 
 export default function HomeScreen() {
+  const { isDarkMode } = useTheme();
+
   return (
-    <ScrollView className="flex-1 bg-[#090909]">
+    <ScrollView className={`flex-1 ${isDarkMode ? 'bg-[#090909]' : 'bg-white'}`}>
       <View className="px-5 pb-10 pt-16">
         <View className="mb-7 flex-row items-center justify-between">
-          <View className="flex flex-row items-center gap-3">
+          <View>
             <Image
               source={require("@/assets/images/tvm-logo.png")}
               style={style.image}
@@ -38,13 +41,13 @@ export default function HomeScreen() {
         <LivePlayer />
 
         <View className="mt-7">
-          <Text className="text-xl font-bold text-white">En direct</Text>
+          <Text className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>En direct</Text>
           <Text className="mt-1 text-sm text-zinc-500">
             Télévision Malagasy
           </Text>
         </View>
 
-        <Text className="mb-4 mt-8 text-xl font-bold text-white">
+        <Text className={`mb-4 mt-8 text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
           Programmes
         </Text>
 
@@ -54,11 +57,11 @@ export default function HomeScreen() {
           ))}
         </ScrollView>
 
-        <Text className="mb-4 mt-8 text-xl font-bold text-white">À venir</Text>
+        <Text className={`mb-4 mt-8 text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>À venir</Text>
 
-        <View className="rounded-2xl bg-zinc-900 p-5">
+        <View className={`rounded-2xl p-5 ${isDarkMode ? 'bg-zinc-900' : 'bg-zinc-100'}`}>
           <Text className="text-sm text-red-500">14:00</Text>
-          <Text className="mt-1 text-lg font-bold text-white">
+          <Text className={`mt-1 text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Magazine TVM
           </Text>
           <Text className="mt-1 text-sm text-zinc-500">
