@@ -12,8 +12,8 @@ const programs = [
 
 const style = StyleSheet.create({
   image: {
-    width: 70,
-    height: 70,
+    width: 78,
+    height: 36,
     objectFit: "contain",
   },
 });
@@ -23,7 +23,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollView className={`flex-1 ${isDarkMode ? 'bg-[#090909]' : 'bg-white'}`}>
-      <View className="px-5 pb-10 pt-16">
+      <View className="px-5 pb-10 pt-6">
         <View className="mb-7 flex-row items-center justify-between">
           <View>
             <Image
